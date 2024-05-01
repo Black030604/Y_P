@@ -1,0 +1,101 @@
+﻿<Page x:Class="У_П.Glavnaya"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:У_П"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="750"
+      Title="Glavnaya">
+
+    <Border   CornerRadius="20">
+        <Border.Background>
+            <ImageBrush ImageSource="/Photo/Glav.jpg"/>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="ООП C#" Foreground="Gray"   FontWeight="Thin"  Grid.Row="0" Grid.Column="0" Margin="0,1,532,0" FontSize="30"/>
+            <!--Создание кнопок разворачивания, сворачивания и закрытия-->
+            <StackPanel   Grid.Row="0" Orientation="Horizontal"  Margin="307,12,0,11" HorizontalAlignment="Right" Width="440" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.078"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+
+                <Button x:Name="MinBut" Content="_" Height="22" Width="30"   Background="Transparent"  Foreground="Gray"    Click="MinBut1_Click" Grid.Column="1" Margin="335,1,1,1">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="MaxBut" Content="□" Height="22" Width="30"  Background="Transparent" Foreground="Gray"   Click="MaxBut1_Click" Grid.Column="1" Margin="1,1,1,1">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="bClose" Content="x" Height="22" Width="30"    Background="Transparent" Foreground="Gray"     Click="Close1_Click" Grid.Column="1" Margin="1,1,1,1">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1" Margin="212,141,212,91" >
+               
+                <!--Создание страниц -->
+                <Button x:Name="Page1" Margin="5,5,5,5" Content="Основы ООП" FontSize="20" FontWeight="Thin" Background="Transparent" Foreground="Gray" Width="282" Height="30"  Click="Page1_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Page2"  Margin="5,5,5,5" Content="Создание обьекта" FontSize="20" FontWeight="Thin" Background="Transparent" Foreground="Gray" Width="282" Height="38"  Click="Page2_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Page3"  Content="Основные принципы ООП" FontSize="20" FontWeight="Thin" Background="Transparent" Foreground="Gray" Width="282" Height="30"  Click="Page3_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Page4"  Margin="5,5,5,5" Content="Примеры решения задач" FontSize="20" FontWeight="Thin" Background="Transparent" Foreground="Gray" Width="282" Height="30"  Click="Page4_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Page5"  Margin="5,5,5,5" Content="Индивидуальные задачи" FontSize="20" FontWeight="Thin" Background="Transparent" Foreground="Gray" Width="282" Height="30"  Click="Page5_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+
+
+        </Grid>
+    </Border>
+</Page>

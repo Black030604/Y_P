@@ -1,0 +1,224 @@
+                          Примеры решения задач по ООП
+
+Задача №1. Создать класс "Круг" с полями радиус и цвет. Реализовать методы для вычисления площади круга и вывода информации о круге. Создать объект класса и продемонстрировать его использование.
+
+Решение: 
+Описывается класс Circle с приватными полями radius и color. В конструкторе класса инициализируются поля класса значениями радиуса (r) и цвета (c). Описывается метод CalculateArea(), который вычисляет площадь круга  и метод DisplayInfo(), который выводит информацию о круге.
+В методе Main() создается объект класса Circle, вызывается метод DisplayInfo() для вывода информации о круге и выводится площадь круга.
+
+class Circle
+{
+    private double radius;
+    private string color;
+    public Circle(double r, string c)
+    {
+        radius = r;
+        color = c;
+    }
+    public double CalculateArea()
+    {
+        return Math.PI * radius * radius;
+    }
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Circle with radius {radius} and color {color}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Circle myCircle = new Circle(5, "red");
+// создается объект myCircle класса Circle с радиусом 5 и цветом "red"
+
+        myCircle.DisplayInfo();
+        //Метод DisplayInfo() выводит информацию о круге
+        Console.WriteLine($"Area: {myCircle.CalculateArea()}");
+        //выводится площадь круга
+    }
+}
+
+Задача №2. Создать базовый класс "Фигура" с методом для расчета площади. Создать дочерние классы "Прямоугольник" и "Круг", которые наследуются от класса "Фигура". Реализовать методы расчета площади для каждой фигуры.
+
+class Shape
+{
+    public virtual double CalculateArea()
+    {
+        return 0;
+    }
+}
+
+class Rectangle : Shape
+{
+    private double length;
+    private double width; 
+    public Rectangle(double l, double w)
+    {
+        length = l;
+        width = w;
+    }
+    public override double CalculateArea()
+    {
+        return length * width;
+    }
+}
+
+class Circle : Shape
+{
+    private double radius; 
+    public Circle(double r)
+    {
+        radius = r;
+    }
+public override double CalculateArea()
+    {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Rectangle myRectangle = new Rectangle(5, 10);
+        Circle myCircle = new Circle(5); 
+        Console.WriteLine($"Rectangle Area: {myRectangle.CalculateArea()}");
+        Console.WriteLine($"Circle Area: {myCircle.CalculateArea()}");
+    }
+}
+
+Создаем базовый класс Shape с виртуальным методом CalculateArea().
+Создаем дочерние классы Rectangle и Circle, которые наследуются от базового класса и переопределяют метод CalculateArea().
+В методе Main() создаем объекты классов Rectangle и Circle, вызываем метод CalculateArea() для расчета площади.
+
+Задача №3. Создать интерфейс "Фигура" с методом для расчета площади. Реализовать интерфейс в классах "Прямоугольник" и "Круг". Создать объекты каждого класса и вызвать метод расчета площади.
+
+interface IShape
+{
+    double CalculateArea();
+}
+
+class Rectangle : IShape
+{
+    private double length;
+    private double width;
+    public Rectangle(double l, double w)
+    {
+        length = l;
+        width = w;
+    }
+  public double CalculateArea()
+    {
+        return length * width;
+    }
+}
+
+class Circle : IShape
+{
+    private double radius; 
+    public Circle(double r)
+    {
+        radius = r;
+    }
+    public double CalculateArea()
+    {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Rectangle myRectangle = new Rectangle(5, 10);
+        Circle myCircle = new Circle(5);
+        Console.WriteLine($"Rectangle Area: {myRectangle.CalculateArea()}");
+        Console.WriteLine($"Circle Area: {myCircle.CalculateArea()}");
+    }
+}
+
+Создаем интерфейс IShape с методом CalculateArea().
+Реализуем интерфейс в классах Rectangle и Circle.
+В методе Main() создаем объекты каждого класса, вызываем метод CalculateArea() для расчета площади.
+
+Задача №4. Создать абстрактный класс "Транспортное средство" с абстрактным методом "Передвижение. Создать классы "Автомобиль" и "Велосипед", которые наследуются от абстрактного класса и реализуют метод "Передвижение".
+
+abstract class Vehicle
+{
+    public abstract void Move();
+}
+
+class Car : Vehicle
+{
+    public override void Move()
+    {
+        Console.WriteLine("Car is moving on the road");
+    }
+}
+
+class Bicycle : Vehicle
+{
+    public override void Move()
+    {
+        Console.WriteLine("Bicycle is moving on the street");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Car myCar = new Car();
+        Bicycle myBicycle = new Bicycle();
+       myCar.Move();
+        myBicycle.Move();
+    }
+}
+
+Создаем абстрактный класс Vehicle с абстрактным методом Move().
+Создаем дочерние классы Car и Bicycle, которые наследуются от абстрактного класса и реализуют метод Move().
+В методе Main() создаем объекты каждого класса, вызываем метод Move() для передвижения.
+
+Задача №5. Создать класс "Человек" с полями имя и возраст. Реализовать свойства для доступа к полям. Создать конструктор и метод для вывода информации о человеке. Создать объект класса и продемонстрировать его использование.
+
+class Person
+{
+    private string name;
+    private int age;
+    public string Name
+    {
+        get { return name; }
+        set{ name = value; }
+    }
+    public int Age
+    {
+        get { return age; }
+        set { age = value; }
+    }
+    public Person(string n, int a)
+    {
+        name = n;
+        age = a;
+    }
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Name: {name}, Age: {age}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Person person1 = new Person("Alice", 30);
+        person1.DisplayInfo();
+    }
+}
+
+Создаем класс Person с приватными полями name и age.
+Создаем свойства для доступа к полям.
+В конструкторе присваиваем значения полям.
+Реализуем метод DisplayInfo(), который выводит информацию о человеке.
+В методе Main() создаем объект класса Person, вызываем метод DisplayInfo() для вывода информации.
+ 
